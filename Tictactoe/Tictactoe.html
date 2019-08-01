@@ -1,28 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="Tictactoe.css">
   <title>Tic Tac Toe</title>
 </head>
+
 <body>
   <h1>Tic Tac Toe</h1>
+  <h1 class="reset">reset</h1>
   <table>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>
+        <div></div>
+      </td>
+      <td>
+        <div></div>
+      </td>
+      <td>
+        <div></div>
+      </td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>
+        <div></div>
+      </td>
+      <td>
+        <div></div>
+      </td>
+      <td>
+        <div></div>
+      </td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>
+        <div></div>
+      </td>
+      <td>
+        <div></div>
+      </td>
+      <td>
+        <div></div>
+      </td>
     </tr>
   </table>
+  <script>
+    var div = document.querySelectorAll("div");
+    var td = document.querySelectorAll("td");
+    var click = 0;
+    var reset=document.querySelector(".reset")
+    for (let i = 0; i < div.length; i++) {
+      td[i].addEventListener("click", function () {
+        if (click % 2 == 0) {
+          div[i].classList.remove("X")
+          div[i].classList.add("O")
+        }
+        else {
+          div[i].classList.remove("O")
+          div[i].classList.add("X")
+        }
+        click++
+      })
+    }
+reset.addEventListener("click",function(){
+  div.forEach(e=>e.classList.remove("O","X"))
+})
+  </script>
 </body>
+
 </html>
